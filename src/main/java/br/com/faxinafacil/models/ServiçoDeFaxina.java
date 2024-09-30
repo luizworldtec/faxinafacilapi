@@ -1,5 +1,6 @@
 package br.com.faxinafacil.models;
 
 public class ServiçoDeFaxina {
-    private
+    private String dataHoraPgto;
+    private String enderecoServico;
 }
