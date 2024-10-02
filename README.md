@@ -23,3 +23,6 @@ git clone https://Mrpopy@github.com/luizworldtec/faxinafacil.git
 ```bash
 git clone https://ReiKiller@github.com/luizworldtec/faxinafacil.git
 ```
+```bash
+git clone https://amandalourdes@github.com/luizworldtec/faxinafacil.git
+```
