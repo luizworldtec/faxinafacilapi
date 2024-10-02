@@ -1,5 +1,8 @@
 package br.com.faxinafacil.models;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class ProfissionalDeLimpeza {
     private String nome;
     private String endereco;
