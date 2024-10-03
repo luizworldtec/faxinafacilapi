@@ -11,10 +11,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Pagamento {
-    private String valorPgto;
-    private String dataHoraPgto;
-    private String typePayment;
-    private String statusPgto;
-    private
+public class Contratante {
+    private String nome;
+    private String endereco;
+    private String email;
+    private String numTel;
+    private String historicoLimpezas;
+    private String cpf;
 }
