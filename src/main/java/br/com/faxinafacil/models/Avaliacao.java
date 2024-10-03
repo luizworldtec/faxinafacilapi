@@ -1,17 +1,22 @@
 package br.com.faxinafacil.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Avaliacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
     private String comentarioServico;
-    @Column
     private String classifEstrelas;
-    @Column
     private String dataHoraAvaliacao;
     @ManyToOne
     @JoinColumn(name = "usuario_id")
