@@ -11,14 +11,17 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Pagamento {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String valorPgto;
-    private String dataHoraPgto;
-    private String typePayment;
-    private String statusPgto;
-    @OneToOne
+    private String nome;
+    private String endereco;
+    private String email;
+    private String numTel;
+    private String historicoLimpezas;
+    private String cpf;
+    @ManyToOne
+    @JoinColumn(name = "servicoDeFaxina_id")
     private ServicoDeFaxina servicoDeFaxina;
 }

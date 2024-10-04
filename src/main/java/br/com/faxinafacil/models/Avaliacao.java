@@ -18,7 +18,6 @@ public class Avaliacao {
     private String comentarioServico;
     private String classifEstrelas;
     private String dataHoraAvaliacao;
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    @OneToMany
+    private ProfissionalDeLimpeza profissionalDeLimpeza;
 }

@@ -11,14 +11,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Pagamento {
+public class ServicoDeFaxina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String valorPgto;
     private String dataHoraPgto;
-    private String typePayment;
-    private String statusPgto;
+    private String enderecoServico;
     @OneToOne
-    private ServicoDeFaxina servicoDeFaxina;
+    private Pagamento pagamento;
 }
