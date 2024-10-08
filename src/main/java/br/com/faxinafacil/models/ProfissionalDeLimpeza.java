@@ -13,14 +13,12 @@ import lombok.Setter;
 @Setter
 public class ProfissionalDeLimpeza {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String cpf;
     private String nome;
     private String endereco;
     private String email;
     private String numTel;
     private String avaliacoesRecebidas;
-    private String cpf;
     @ManyToMany
     private Usuario usuario;
 }
