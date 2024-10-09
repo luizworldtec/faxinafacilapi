@@ -19,6 +19,22 @@ public class AvaliacaoService {
         return avaliacaoRepository.save(avaliacao);
     }
 
+    public Avaliacao buscarPorId(Long codigo) {
+        return avaliacaoRepository.findById(codigo).orElseThrow(() ->
+                new AvaliacaoInvalidaException("Avaliação não encontrada com o ID: " + codigo));
+    }
+
+    public void deletarAvaliacao(Long codigo) {
+        if (!existeAvaliacao(codigo)) {
+            throw new AvaliacaoInvalidaException("Avaliação não encontrada com o ID: " + codigo);
+        }
+        avaliacaoRepository.deleteById(codigo);
+    }
+
+    public boolean existeAvaliacao(Long codigo) {
+        return avaliacaoRepository.existsById(codigo);
+    }
+
     private void validarAvaliacao(Avaliacao avaliacao) {
         if (avaliacao.getClassifEstrelas() == null) {
             throw new AvaliacaoInvalidaException("A classificação em estrelas não pode ser nula.");
@@ -26,20 +42,5 @@ public class AvaliacaoService {
         if (avaliacao.getComentarioServico() == null || avaliacao.getComentarioServico().isEmpty()) {
             throw new AvaliacaoInvalidaException("O comentário do serviço não pode estar vazio.");
         }
-        if (avaliacao.getDataHoraAvaliacao() == null) {
-            throw new AvaliacaoInvalidaException("A data e hora da avaliação não podem ser nulas.");
-        }
-    }
-
-    public Avaliacao buscarPorId(Long codigo) {
-        return avaliacaoRepository.findById(codigo).orElse(null);
-    }
-
-    public void deletarAvaliacao(Long codigo) {
-        avaliacaoRepository.deleteById(codigo);
-    }
-
-    public boolean existeAvaliacao(Long codigo) {
-        return avaliacaoRepository.existsById(codigo);
     }
 }
