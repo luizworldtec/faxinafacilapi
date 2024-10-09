@@ -1,5 +1,6 @@
 package br.com.faxinafacil.services;
 
+import br.com.faxinafacil.exceptions.AvaliacaoInvalidaException;
 import br.com.faxinafacil.models.Avaliacao;
 import br.com.faxinafacil.repositories.AvaliacaoRepository;
 import org.springframework.stereotype.Service;
@@ -7,25 +8,38 @@ import org.springframework.stereotype.Service;
 @Service
 public class AvaliacaoService {
 
-    private AvaliacaoRepository avaliacaoRepository;
+    private final AvaliacaoRepository avaliacaoRepository;
 
     public AvaliacaoService(AvaliacaoRepository avaliacaoRepository) {
         this.avaliacaoRepository = avaliacaoRepository;
     }
 
-    public Avaliacao enviarAvalicao(Avaliacao avaliacao){
+    public Avaliacao enviarAvaliacao(Avaliacao avaliacao) {
+        validarAvaliacao(avaliacao);
         return avaliacaoRepository.save(avaliacao);
     }
 
-    public Avaliacao buscarPorId(Long codigo){
+    private void validarAvaliacao(Avaliacao avaliacao) {
+        if (avaliacao.getClassifEstrelas() == null) {
+            throw new AvaliacaoInvalidaException("A classificação em estrelas não pode ser nula.");
+        }
+        if (avaliacao.getComentarioServico() == null || avaliacao.getComentarioServico().isEmpty()) {
+            throw new AvaliacaoInvalidaException("O comentário do serviço não pode estar vazio.");
+        }
+        if (avaliacao.getDataHoraAvaliacao() == null) {
+            throw new AvaliacaoInvalidaException("A data e hora da avaliação não podem ser nulas.");
+        }
+    }
+
+    public Avaliacao buscarPorId(Long codigo) {
         return avaliacaoRepository.findById(codigo).orElse(null);
     }
 
-    public void deletarAvaliacao (Long codigo){
+    public void deletarAvaliacao(Long codigo) {
         avaliacaoRepository.deleteById(codigo);
     }
 
-    public boolean existeAvaliacao (Long codigo){
-        return !avaliacaoRepository.existsById(codigo);
+    public boolean existeAvaliacao(Long codigo) {
+        return avaliacaoRepository.existsById(codigo);
     }
 }
