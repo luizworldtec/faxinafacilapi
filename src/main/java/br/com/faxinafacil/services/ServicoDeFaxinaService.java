@@ -5,6 +5,8 @@ import br.com.faxinafacil.models.ServicoDeFaxina;
 import br.com.faxinafacil.repositories.ServicoDeFaxinaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ServicoDeFaxinaService {
 
@@ -33,6 +35,10 @@ public class ServicoDeFaxinaService {
 
     public boolean existeServico(Long id) {
         return servicoDeFaxinaRepository.existsById(id);
+    }
+
+    public List<ServicoDeFaxina> listarTodos() {
+        return servicoDeFaxinaRepository.findAll();
     }
 
     private void validarServico(ServicoDeFaxina servico) {
