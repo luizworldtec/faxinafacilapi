@@ -1,7 +1,10 @@
 package br.com.faxinafacil.controllers;
 
 import br.com.faxinafacil.models.servicodefaxina.ServicoDeFaxina;
+import br.com.faxinafacil.models.servicodefaxina.ServicoDeFaxinaRequest;
+import br.com.faxinafacil.models.servicodefaxina.ServicoDeFaxinaResponse;
 import br.com.faxinafacil.services.ServicoDeFaxinaService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +22,9 @@ public class ServicoDeFaxinaController {
     }
 
     @PostMapping
-    public ResponseEntity<ServicoDeFaxina> criarServico(@RequestBody ServicoDeFaxina servico) {
-        ServicoDeFaxina servicoSalvo = servicoDeFaxinaService.salvarServico(servico);
-        return ResponseEntity.created(URI.create("/servicos/" + servicoSalvo.getId())).body(servicoSalvo);
+    public ResponseEntity<ServicoDeFaxinaResponse> criarServico(@RequestBody ServicoDeFaxinaRequest servico) {
+        ServicoDeFaxina novoServico = servicoDeFaxinaService.salvarServico(servico.toServicoDeFaxina());
+        return ResponseEntity.status(HttpStatus.CREATED).body(new ServicoDeFaxinaResponse(novoServico));
     }
 
     @GetMapping("/{id}")
