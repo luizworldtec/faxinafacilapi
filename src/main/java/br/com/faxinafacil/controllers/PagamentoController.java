@@ -1,7 +1,7 @@
 package br.com.faxinafacil.controllers;
 
 import br.com.faxinafacil.exceptions.PagamentoInvalidoException;
-import br.com.faxinafacil.models.Pagamento;
+import br.com.faxinafacil.models.pagamento.Pagamento;
 import br.com.faxinafacil.services.PagamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

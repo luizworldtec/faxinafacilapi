@@ -1,7 +1,7 @@
 package br.com.faxinafacil.services;
 
 import br.com.faxinafacil.exceptions.ProfissionalInvalidoException;
-import br.com.faxinafacil.models.ProfissionalDeLimpeza;
+import br.com.faxinafacil.models.profissionaldelimpeza.ProfissionalDeLimpeza;
 import br.com.faxinafacil.repositories.ProfissionalDeLimpezaRepository;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package br.com.faxinafacil.services;
 
 import br.com.faxinafacil.exceptions.ServicoInvalidoException;
-import br.com.faxinafacil.models.ServicoDeFaxina;
+import br.com.faxinafacil.models.servicodefaxina.ServicoDeFaxina;
 import br.com.faxinafacil.repositories.ServicoDeFaxinaRepository;
 import org.springframework.stereotype.Service;
 

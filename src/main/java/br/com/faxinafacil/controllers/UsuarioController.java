@@ -1,6 +1,8 @@
 package br.com.faxinafacil.controllers;
 
-import br.com.faxinafacil.models.Usuario;
+import br.com.faxinafacil.models.usuario.Usuario;
+import br.com.faxinafacil.models.usuario.UsuarioRequest;
+import br.com.faxinafacil.models.usuario.UsuarioResponse;
 import br.com.faxinafacil.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,9 +34,9 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
-        Usuario novoUsuario = usuarioService.criarUsuario(usuario);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novoUsuario);
+    public ResponseEntity<UsuarioResponse> criarUsuario(@RequestBody UsuarioRequest usuario) {
+        Usuario novoUsuario = usuarioService.criarUsuario(usuario.toUsuario());
+        return ResponseEntity.status(HttpStatus.CREATED).body(new UsuarioResponse(novoUsuario));
     }
 
     @PutMapping("/{cpf}")

@@ -1,7 +1,7 @@
 package br.com.faxinafacil.services;
 
 import br.com.faxinafacil.exceptions.AvaliacaoInvalidaException;
-import br.com.faxinafacil.models.Avaliacao;
+import br.com.faxinafacil.models.avaliacao.Avaliacao;
 import br.com.faxinafacil.repositories.AvaliacaoRepository;
 import org.springframework.stereotype.Service;
 

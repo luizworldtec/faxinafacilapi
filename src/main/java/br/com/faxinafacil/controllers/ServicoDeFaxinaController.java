@@ -1,6 +1,6 @@
 package br.com.faxinafacil.controllers;
 
-import br.com.faxinafacil.models.ServicoDeFaxina;
+import br.com.faxinafacil.models.servicodefaxina.ServicoDeFaxina;
 import br.com.faxinafacil.services.ServicoDeFaxinaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

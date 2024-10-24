@@ -1,7 +1,7 @@
 package br.com.faxinafacil.controllers;
 
 import br.com.faxinafacil.exceptions.AvaliacaoInvalidaException;
-import br.com.faxinafacil.models.Avaliacao;
+import br.com.faxinafacil.models.avaliacao.Avaliacao;
 import br.com.faxinafacil.services.AvaliacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

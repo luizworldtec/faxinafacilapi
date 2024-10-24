@@ -1,6 +1,6 @@
 package br.com.faxinafacil.services;
 
-import br.com.faxinafacil.models.Usuario;
+import br.com.faxinafacil.models.usuario.Usuario;
 import br.com.faxinafacil.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

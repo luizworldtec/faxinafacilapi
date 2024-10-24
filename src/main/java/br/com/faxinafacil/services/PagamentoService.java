@@ -1,7 +1,7 @@
 package br.com.faxinafacil.services;
 
 import br.com.faxinafacil.exceptions.PagamentoInvalidoException;
-import br.com.faxinafacil.models.Pagamento;
+import br.com.faxinafacil.models.pagamento.Pagamento;
 import br.com.faxinafacil.repositories.PagamentoRepository;
 import org.springframework.stereotype.Service;
 
